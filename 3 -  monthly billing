@@ -1,0 +1,64 @@
+#For this one I transformed .json file into .csv file and use the panda library 
+
+#First I logged into my drive
+
+from google.colab import drive
+drive.mount('/gdrive')
+
+#After the transformartion into csv, i downloaded it
+
+rslt = pd.read_csv(
+    '/content/drive/MyDrive/dadosp6/result.csv', # o caminho para o arquivo que se quer ler
+    sep=',') # o caracter utilizado para separar os valores
+    
+#And find the smallest ones
+input:
+rslt.nsmallest(9, 'valor')
+
+output:
+dia	valor
+3	4	0.0
+4	5	0.0
+6	7	0.0
+10	11	0.0
+11	12	0.0
+17	18	0.0
+18	19	0.0
+24	25	0.0
+25	26	0.0
+
+#And find the largest one
+input:
+rslt.nlargest(1, 'valor')
+
+output:
+dia	valor
+15	16	48924.2448
+
+#After that i have the mean from the result:
+input:
+np.mean(rslt)
+
+output:
+dia         15.500000
+valor    14605.759117
+
+#And using the same largest function, i Saw that there are 12 days larger than the mean:
+input:
+rslt.nlargest(13, 'valor')
+
+output:
+dia	valor
+15	16	48924.2448
+8	9	46251.1740
+20	21	43829.1667
+7	8	42889.2258
+19	20	35240.1826
+5	6	26742.6612
+2	3	26139.6134
+26	27	25681.8318
+1	2	24537.6698
+0	1	22174.1664
+16	17	18419.2614
+21	22	18235.6852
+23	24	13327.1025
