@@ -1,0 +1,19 @@
+sp = 67836.13
+rj = 36678.66
+mg = 29229.48
+es = 27165.48
+ot = 19849.43
+
+total = sp+rj+mg+es+ot
+
+percentageSp = sp/total * 100
+percentageRj = rj/total * 100
+percentageMg = mg/total * 100
+percentageEs = es/total * 100
+percentageOt = ot/total * 100
+
+print(f'The percentage of Sp is: {percentageSp}')
+print(f'The percentage of Rj is: {percentageRj}')
+print(f'The percentage of Mg is: {percentageMg}')
+print(f'The percentage of Es is: {percentageEs}')
+print(f'The percentage of Ot is: {percentageOt}')
